@@ -7,7 +7,7 @@ int main(void)
 {
     struct proc_info *processInfo;
     processInfo = malloc(NPROC * sizeof(*processInfo));
-    find_and_sort(processInfo);
+    getprocess(processInfo);
     for (int i = 0; i < NPROC; i++)
     {
         if (((processInfo + i)->pid) == 0 && (processInfo + i)->memsize == 0)
