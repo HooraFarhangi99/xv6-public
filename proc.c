@@ -548,9 +548,9 @@ void find_and_sort(struct proc_info * proc_list){
 
 	int i, key, j;
 		for(i = 1; i < pcounter; i++) {
-			key = (proc_ist + i)->memsize;
+			key = (proc_list + i)->memsize;
 			j = i -1;
-			while (j >= 0 && (plist +j)->memsize > key) {
+			while (j >= 0 && (proc_list +j)->memsize > key) {
 				*(proc_list + j + 1) = *(proc_list + j);
 				j = j - 1;
 			}
