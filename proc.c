@@ -532,3 +532,30 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+void find_and_sort(struct proc_info * proc_list){
+
+	acquire(&ptable.lock);
+	int pcounter = 0;
+	for(struct proc *p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+		if(p->state == RUNNING || p->state == RUNNABLE){
+			(proc_list + pcounter)->memsize = (int)p->sz;
+			(proc_list + pcounter)->pid = (int)p->pid;
+			pcounter++;
+		}
+	}
+	release(&ptable.lock);
+
+	int i, key, j;
+		for(i = 1; i < pcounter; i++) {
+			key = (proc_ist + i)->memsize;
+			j = i -1;
+			while (j >= 0 && (plist +j)->memsize > key) {
+				*(proc_list + j + 1) = *(proc_list + j);
+				j = j - 1;
+			}
+			(proc_list + j + 1)->memsize = key;
+		}
+	return;
+}
+			
