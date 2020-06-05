@@ -2,6 +2,7 @@
 #include "stat.h"
 #include "user.h"
 
+//create 8 processes and assign memory to thems
 int main(void)
 {
     int pid = fork();
