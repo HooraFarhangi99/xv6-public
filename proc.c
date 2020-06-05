@@ -533,6 +533,7 @@ procdump(void)
   }
 }
 
+//implementing a function to find the processes which are RUNNING or RUNNABLE ans sort them ascendingly
 void find_and_sort(struct proc_info * proc_list){
 
 	acquire(&ptable.lock);
