@@ -121,7 +121,7 @@ void            userinit(void);
 int             wait(void);
 void            wakeup(void*);
 void            yield(void);
-void    	find_and_sort(struct proc_info*)
+void    	    find_and_sort(struct proc_info*);
 
 // swtch.S
 void            swtch(struct context**, struct context*);
