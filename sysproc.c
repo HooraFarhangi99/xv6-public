@@ -89,3 +89,13 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_getprocess(void)
+{
+	struct proc_info *pinfo;
+		if(argptr(0, (void*)&pinfo, sizeof(*pinfo)) < 0)
+			return -1;
+		find_and_sort(pinfo);
+		return 0;
+}
