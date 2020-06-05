@@ -3,6 +3,7 @@
 #include "user.h"
 #include "param.h"
 
+//print out each process pid and allocated memory size sorted ascendingly
 int main(void)
 {
     struct proc_info *processInfo;
