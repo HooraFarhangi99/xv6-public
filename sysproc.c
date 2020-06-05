@@ -90,6 +90,7 @@ sys_uptime(void)
   return xticks;
 }
 
+//implementing the new syscall functionality named getprocess
 int
 sys_getprocess(void)
 {
