@@ -89,3 +89,19 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+// Implement new system call named "waitx" here
+int
+sys_waitx(void) 
+{
+  int *wtime;
+  int *rtime;
+
+  if(argptr(0, (char**)&wtime, sizeof(int)) < 0)
+    return -1;
+
+  if(argptr(1, (char**)&rtime, sizeof(int)) < 0)
+    return -1;
+
+  return waitx(wtime, rtime);     // This passes the arguments "rtime", "wtime" to waitx() in proc.c
+}
