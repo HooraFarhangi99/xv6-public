@@ -18,6 +18,7 @@ int main (int argc,char *argv[])
   	else
  	{
     	status = waitx(&waitTime, &runTime);
+		printf(1, "Wait Time = %d\nRun Time = %d\nwith Status %d\n", waitTime, runTime, status); 
  	}  
  	
  	exit();
