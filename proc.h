@@ -52,6 +52,9 @@ struct proc {
 
   // Create new fields stiime, etime, rtime, iotime
   int stime, etime, rtime, iotime; 
+
+  // priority, a number between 0 (for highest priority) and 100(for lowest priority)
+  int priority;
 };
 
 // Process memory is laid out contiguously, low addresses first:
