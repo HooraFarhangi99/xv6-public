@@ -131,7 +131,7 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_waitx]   sys_waitx,           // Add pointer to the new system call
 [SYS_cps]     sys_cps,
-[SYS_waitx]   sys_setpri,          // Add pointer to the new system call
+[SYS_setpri]   sys_setpri,          // Add pointer to the new system call
 
 };
 
