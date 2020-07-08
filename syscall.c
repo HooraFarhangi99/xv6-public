@@ -103,9 +103,10 @@ extern int sys_unlink(void);
 extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
-extern int sys_waitx(void);       // Create prototype for the new system call "waitx"
+extern int sys_procInfo(void);    // Add prototype for new system call named "procInfo"
+extern int sys_waitx(void);       // Add prototype for new system call named "waitx"
 extern int sys_cps(void);
-extern int sys_setpri(void);      // Create prototype for the new system call "setpri"
+extern int sys_setp(void);        // Add prototype for new system call named "set_priority"
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
@@ -129,10 +130,9 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[SYS_waitx]   sys_waitx,           // Add pointer to the new system call
-[SYS_cps]     sys_cps,
-[SYS_setpri]   sys_setpri,          // Add pointer to the new system call
-
+[SYS_waitx] sys_waitx,           // Add pointer for new system call function here
+[SYS_cps] sys_cps,
+[SYS_setp] sys_setp,             // Add pointer for new system call function here
 };
 
 void

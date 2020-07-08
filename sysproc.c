@@ -90,20 +90,22 @@ sys_uptime(void)
   return xticks;
 }
 
-// Implement new system call named "waitx" here
+
+
+// Implement new system call named "waitx" here.
 int
 sys_waitx(void) 
 {
   int *wtime;
   int *rtime;
-
+  
   if(argptr(0, (char**)&wtime, sizeof(int)) < 0)
     return -1;
 
   if(argptr(1, (char**)&rtime, sizeof(int)) < 0)
     return -1;
 
-  return waitx(wtime, rtime);     // This passes the arguments "rtime", "wtime" to waitx() in proc.c
+  return waitx(wtime, rtime);     // It passes the parameters "rtime", "wtime" to the "waitx()" in proc.c
 }
 
 int
@@ -112,15 +114,15 @@ sys_cps(void)
   return cps();
 }
 
-// Implement new system call named "setpri" here
+// Implement new system call named "setp" here.
 int
-sys_setpri(void)
+sys_setp(void)
 {
-    int pid, pri;
+    int pid, priority;
     if(argint(0, &pid) < 0)
         return -1;
-    if(argint(1, &pri) < 0)
+    if(argint(1, &priority) < 0)
         return -1;
 
-    return setpri(pid, pri);
+    return setp(pid, priority);
 }

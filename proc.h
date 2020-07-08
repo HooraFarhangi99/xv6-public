@@ -50,10 +50,10 @@ struct proc {
   struct inode *cwd;           // Current directory
   char name[16];               // Process name (debugging)
 
-  // Create new fields stiime, etime, rtime, iotime
+  // Add new fields stime(for start time), etime(for end time), rtime(for total time), iotime(for I/O time)
   int stime, etime, rtime, iotime; 
 
-  // priority, a number between 0 (for highest priority) and 100(for lowest priority)
+  // priority, a number between 0(highest priority) and 100(lowest priority)
   int priority;
 };
 

@@ -62,6 +62,7 @@ trap(struct trapframe *tf)
         else if(myproc()->state == SLEEPING)
           myproc()->iotime++;
       }
+
     }
     lapiceoi();
     break;

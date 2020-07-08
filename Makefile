@@ -181,6 +181,8 @@ UPROGS=\
 	_usertests\
 	_wc\
 	_zombie\
+	_test\
+	_makeProcess\
 	_test2\
 	_ps\
 	_nice\
@@ -257,6 +259,7 @@ EXTRA=\
 	printf.c umalloc.c\
 	README dot-bochsrc *.pl toc.* runoff runoff1 runoff.list\
 	.gdbinit.tmpl gdbutil\
+	test.c makeProcess.c\
 	test2.c\
 
 dist:

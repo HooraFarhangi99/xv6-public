@@ -113,12 +113,11 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
-  // Adding new time fields
+  // Adding new time fields here
   p->stime = ticks;         // start time
   p->etime = 0;             // end time
   p->rtime = 0;             // run time
   p->iotime = 0;            // I/O time
-
 
   return p;
 }
@@ -271,7 +270,7 @@ exit(void)
 
   // Jump into the scheduler, never to return.
   curproc->state = ZOMBIE;
-  
+
   // updating end time
   curproc->etime = ticks; 
 
@@ -344,7 +343,6 @@ scheduler(void)
     sti();
 
     struct proc *highP =  0;
-
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
@@ -359,6 +357,8 @@ scheduler(void)
           highP = p1;
       }
       p = highP;
+
+    
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
@@ -374,7 +374,6 @@ scheduler(void)
       c->proc = 0;
     }
     release(&ptable.lock);
-
   }
 }
 
@@ -556,7 +555,10 @@ procdump(void)
   }
 }
 
-// the final implementation of waitx() system call
+
+
+
+// The actual waitx() system call
 int
 waitx(int *wtime, int *rtime)
 {
@@ -566,7 +568,7 @@ waitx(int *wtime, int *rtime)
 
   acquire(&ptable.lock);
   for(;;){
-    // Scan through ptable looking for zombie children.
+    // Scan through table looking for zombie children.
     havekids = 0;
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->parent != curproc)
@@ -605,7 +607,6 @@ waitx(int *wtime, int *rtime)
   }
 }
 
-
 int
 cps()
 {
@@ -629,13 +630,13 @@ cps()
 
     release(&ptable.lock);
 
-    return 23;
+    return 24;
 }
 
 
 // Change priority
 int
-setpri(int pid, int priority)
+setp(int pid, int priority)
 {
     struct proc *p;
 
