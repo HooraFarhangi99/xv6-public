@@ -24,6 +24,7 @@ char* sbrk(int);
 int sleep(int);
 int uptime(void);
 int waitx(int *wtime, int *rtime);
+int cps(void);
 int setpri(int pid, int priority);
 
 // ulib.c

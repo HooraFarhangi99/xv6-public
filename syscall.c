@@ -104,6 +104,7 @@ extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_waitx(void);       // Create prototype for the new system call "waitx"
+extern int sys_cps(void);
 extern int sys_setpri(void);      // Create prototype for the new system call "setpri"
 
 static int (*syscalls[])(void) = {
@@ -128,8 +129,9 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
-[SYS_waitx] sys_waitx,           // Add pointer to the new system call
-[SYS_waitx] sys_setpri,          // Add pointer to the new system call
+[SYS_waitx]   sys_waitx,           // Add pointer to the new system call
+[SYS_cps]     sys_cps,
+[SYS_waitx]   sys_setpri,          // Add pointer to the new system call
 
 };
 

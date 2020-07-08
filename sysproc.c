@@ -106,6 +106,12 @@ sys_waitx(void)
   return waitx(wtime, rtime);     // This passes the arguments "rtime", "wtime" to waitx() in proc.c
 }
 
+int
+sys_cps(void)
+{
+  return cps();
+}
+
 // Implement new system call named "setpri" here
 int
 sys_setpri(void)
