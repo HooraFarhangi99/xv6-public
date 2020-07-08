@@ -629,7 +629,7 @@ cps()
 
     release(&ptable.lock);
 
-    return 24;
+    return 23;
 }
 
 
