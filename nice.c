@@ -24,4 +24,4 @@ main(int argc, char *argv[])
     setpri(pid, priority);
 
     exit();
-}
+} 
