@@ -113,7 +113,7 @@ found:
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
 
-  // Adding new time fields here
+  // Adding new time fields
   p->stime = ticks;         // start time
   p->etime = 0;             // end time
   p->rtime = 0;             // run time
@@ -630,13 +630,13 @@ cps()
 
     release(&ptable.lock);
 
-    return 24;
+    return 23;
 }
 
 
 // Change priority
 int
-setp(int pid, int priority)
+setpri(int pid, int priority)
 {
     struct proc *p;
 
