@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
     id = 0;
 
     id = fork();
-    setp(id, ((id * 15) + 58) % 100);
+    setpri(id, ((id * 15) + 58) % 100);
     id = fork();
-    setp(id, ((id * 20) + 80) % 100);
+    setpri(id, ((id * 20) + 80) % 100);
     id = fork();
-    setp(id, ((id * 8) + 25) % 100);
+    setpri(id, ((id * 8) + 25) % 100);
     id = fork();
-    setp(id, ((id * 17) + 97) % 100);
+    setpri(id, ((id * 17) + 97) % 100);
     if(id < 0)
         printf(1, "%d failed in fork!\n", getpid());
     else if(id > 0)
